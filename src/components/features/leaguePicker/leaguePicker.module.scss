@@ -1,0 +1,36 @@
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .picker {
+    align-items: center;
+    background: #16a085;
+    box-shadow: 0 15px 25px rgba(9,63,52,.6);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    justify-content: center;
+    min-height: 700px;
+    min-width: 400px;
+    padding: 0 30px;
+    
+    select {
+      margin: 50px 0;
+      box-shadow: 0 15px 25px rgba(9,63,52,.6);
+      background: rgb(52,73,94,.5);
+      color: white;
+
+      &:hover {
+        box-shadow: 0 15px 25px rgba(9,63,52,.8);
+      }
+
+      option {
+        background: rgb(22, 160, 133,.8);
+      }
+    }
+  }
+}

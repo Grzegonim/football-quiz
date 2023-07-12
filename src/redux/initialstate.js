@@ -1,5 +1,6 @@
 const initialState = {
-  leagues: {}
+  leagues: {},
+  teams: {}
 }
 
 export default initialState;
