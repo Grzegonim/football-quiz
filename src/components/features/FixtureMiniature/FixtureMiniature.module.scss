@@ -1,0 +1,44 @@
+.fixtureContainer {
+  background-color: #34495e;
+  border-radius: 10px;
+  color: white;
+  height: 200px;
+  margin: 10px 0;
+  width: 600px;
+
+  .flags {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .flag {
+      border-radius: 50%;
+      background-position: center; 
+      background-size: cover;
+      display: flex;
+      height: 150px;
+      justify-content: center;
+      margin: 10px 10px;
+      position: relative;
+      width: 150px;
+
+      span {
+        bottom: -25px;
+        position: absolute;
+      }
+    }
+    .info {
+      align-items: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      span {
+        &:first-child {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}

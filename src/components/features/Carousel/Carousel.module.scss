@@ -1,0 +1,31 @@
+.carouselContainer {
+  width: 100%;
+
+  .carousel {
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    position: relative;
+    width: 500px;
+
+    button {
+      position: absolute;
+      border-radius: 50%;
+      padding: 0;
+      height: 50px;
+      width: 50px;
+
+      &:first-child {
+        left: 5px;
+      }
+
+      right: 5px;
+    }
+
+    img {
+      height: 190px;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 const initialState = {
   leagues: {},
-  teams: {}
+  teams: {},
+  fixtures: {}, 
+  fixture: {},
+  lineups: {}
 }
 
 export default initialState;

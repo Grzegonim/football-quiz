@@ -1,28 +1,30 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import styles from './leaguePicker.module.scss';
-import Form from 'react-bootstrap/Form';
-import { fetchSeason } from "../../../redux/matchesReducer";
+import Button from "../Button/Button";
+import Carousel from "../Carousel/Carousel";
+import { fetchTeams } from "../../../redux/teamsReducer";
 
 const LeaguePicer = () => {
   const dispatch = useDispatch();
-  const leagues = useSelector(state => state.leagues);
-  const [leagueId, setLeagueId] = useState(1);
-  const [leagueActive, setLeagueActive] = useState(false);
-  console.log(leagueId)
-  const fetchSeasons = (year) => {
-    console.log(typeof year.toString())
-    dispatch(fetchSeason(year.toString()));
-  }
-  let seasons = [];
-  if(leagues.length > 0) {seasons = leagues.filter(league => league.league.id === leagueId);}
+  const [season, setSeason] = useState('');
+  const teams = useSelector(state => state.teams);
+  const pickSeason = year => {
+    setSeason(year)
+    dispatch(fetchTeams(year));
+  };
+  console.log(teams)
 
-  if(leagues.length > 0) return (
+  return (
     <div className={styles.container}>
       <div className={styles.picker}>
-          <option>Wybierz sezon</option>
-          {seasons[0].seasons.map(season => <div key={season.year} value={season.year} onClick={() => fetchSeasons(season.year)}>{season.year}</div>)}
+          <span>Wybierz sezon</span>
+          <Button onClick={(e) => pickSeason(e.target.textContent)}>2010</Button>
+          <Button onClick={(e) => pickSeason(e.target.textContent)}>2014</Button>
+          <Button onClick={(e) => pickSeason(e.target.textContent)}>2018</Button>
+          <Button onClick={(e) => pickSeason(e.target.textContent)}>2022</Button>
+          {teams.length != 0 && teams.length !== undefined && <Carousel year={season} />}
       </div>
     </div>
   )

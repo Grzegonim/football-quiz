@@ -3,11 +3,17 @@ import thunk from 'redux-thunk';
 import initialState from './initialstate';
 import matchesReducer from './matchesReducer';
 import teamsReducer from './teamsReducer';
+import fixturesReducer from './fixturesReducer';
+import fixtureReducer from './fixtureReducer';
+import lineupsReducer from './lineupsReducer';
 
 
 const reducer = combineReducers({
   leagues: matchesReducer,
-  teams: teamsReducer
+  teams: teamsReducer, 
+  fixtures: fixturesReducer, 
+  fixture: fixtureReducer, 
+  lineups: lineupsReducer
 });
 
 const store = createStore(

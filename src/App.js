@@ -1,24 +1,17 @@
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { fetchMatches, fetchLeague } from "./redux/matchesReducer";
-import Board from "./components/pages/board/board";
-import LeaguePicer from "./components/features/leaguePicker/leaguePicker";
-import { fetchTeams } from "./redux/teamsReducer";
-import TeamPicker from "./components/features/TeamPicker/TeamPicker";
-import Container from "./components/features/Container/Container";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./components/pages/Home/Home";
+import MatchPicker from "./components/features/MatchPicker/MatchPicker";
+import Board from './components/pages/board/board';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchTeams());
-    dispatch(fetchLeague());
-  }, [dispatch])
 
   return (
-    <Container>
-      <LeaguePicer />
-      {/*<TeamPicker />*/}
-    </Container>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/matches/:id/:year" element={<MatchPicker />} />
+      <Route path="/match/:id" element={<Board />} />
+    </Routes>
   );
 }
 
