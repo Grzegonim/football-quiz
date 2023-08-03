@@ -7,10 +7,10 @@ import FixtureMiniature from "../FixtureMiniature/FixtureMiniature";
 
 const MatchPicker = () => {
   const dispatch = useDispatch();
-  const { id, year } = useParams();
+  const { id, year, league } = useParams();
   const fixtures = useSelector(state => state.fixtures);
   useEffect(() => {
-    dispatch(fetchFixtures(id, year));
+    dispatch(fetchFixtures(id, year, league));
   }, [id, year]);
 
   if(fixtures.length === undefined) return <h1>Loading...</h1>

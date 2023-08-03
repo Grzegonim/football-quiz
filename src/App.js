@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/matches/:id/:year" element={<MatchPicker />} />
+      <Route path="/matches/:id/:year/:league" element={<MatchPicker />} />
       <Route path="/match/:id" element={<Board />} />
     </Routes>
   );

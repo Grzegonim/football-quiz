@@ -6,14 +6,14 @@ const ADD_TEAMS = createActionName('ADD_TEAMS');
 
 const addTeams = payload => ({ type: ADD_TEAMS, payload });
 
-export const fetchTeams = (year) => {
+export const fetchTeams = (year, id) => {
   return async (dispatch) => {
-    console.log(typeof year)
+    console.log(typeof id)
     const options = {
       method: 'GET',
       url: 'https://api-football-beta.p.rapidapi.com/teams',
       params: {
-        league: '1',
+        league: id,
         season: year
       },
       headers: {

@@ -6,11 +6,13 @@ import teamsReducer from './teamsReducer';
 import fixturesReducer from './fixturesReducer';
 import fixtureReducer from './fixtureReducer';
 import lineupsReducer from './lineupsReducer';
+import seasonsReducer from './seasonsReducer';
 
 
 const reducer = combineReducers({
   leagues: matchesReducer,
-  teams: teamsReducer, 
+  teams: teamsReducer,
+  seasons: seasonsReducer,
   fixtures: fixturesReducer, 
   fixture: fixtureReducer, 
   lineups: lineupsReducer

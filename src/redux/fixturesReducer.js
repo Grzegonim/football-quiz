@@ -6,14 +6,14 @@ const ADD_FIXTURES = createActionName('ADD_FIXTURES');
 
 const addFixtures = payload => ({ type: ADD_FIXTURES, payload });
 
-export const fetchFixtures = (id, year) => {
+export const fetchFixtures = (id, year, league) => {
   return async (dispatch) => {
     const options = {
       method: 'GET',
       url: 'https://api-football-beta.p.rapidapi.com/fixtures',
       params: {
         season: year,
-        league: '1',
+        league: league,
         team: id
       },
       headers: {
