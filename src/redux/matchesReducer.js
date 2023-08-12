@@ -10,11 +10,11 @@ export const fetchLeague = () => {
   return async (dispatch) => {
     const options = {
       method: 'GET',
-      url: 'https://api-football-beta.p.rapidapi.com/leagues',
+      url: 'https://api-football-v1.p.rapidapi.com/v3/leagues',
       params: {id: '1'},
       headers: {
-        'X-RapidAPI-Key': 'f7d8d8ceccmshe0ff352a34b3d37p1f3913jsn2dd77db35e1a',
-        'X-RapidAPI-Host': 'api-football-beta.p.rapidapi.com'
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };
 
@@ -32,11 +32,11 @@ export const fetchSeason = (year) => {
   return async (dispatch) => {
     const options = {
       method: 'GET',
-      url: 'https://api-football-beta.p.rapidapi.com/leagues',
+      url: 'https://api-football-v1.p.rapidapi.com/v3/leagues',
       params: {id: '1', season: {year}},
       headers: {
-        'X-RapidAPI-Key': 'f7d8d8ceccmshe0ff352a34b3d37p1f3913jsn2dd77db35e1a',
-        'X-RapidAPI-Host': 'api-football-beta.p.rapidapi.com'
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };
 

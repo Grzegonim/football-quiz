@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './FixtureMiniature.module.scss';
 import Button from '../Button/Button';
 
-const FixtureMiniature = ({ home, away, league, fixture }) => {
+const FixtureMiniature = ({ home, away, league, fixture, team }) => {
   return (
     <div className={styles.fixtureContainer}>
 
@@ -22,7 +22,7 @@ const FixtureMiniature = ({ home, away, league, fixture }) => {
           <span>{league.name}</span>
           <span>{league.season}</span>
           <span>{league.round}</span>
-          <Link to={`/match/${fixture.id}`}><Button>Graj</Button></Link>
+          <Link to={`/match/${fixture.id}/${team}`}><Button>Graj</Button></Link>
         </div>
 
         <div 

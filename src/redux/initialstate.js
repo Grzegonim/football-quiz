@@ -1,6 +1,6 @@
 const initialState = {
   leagues: {},
-  teams: {},
+  teams: [],
   fixtures: {}, 
   fixture: {},
   lineups: {}

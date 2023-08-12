@@ -16,7 +16,7 @@ export const fetchSeasons = (league, country) => {
         country: country
       },
       headers: {
-        'X-RapidAPI-Key': 'f7d8d8ceccmshe0ff352a34b3d37p1f3913jsn2dd77db35e1a',
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
         'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };

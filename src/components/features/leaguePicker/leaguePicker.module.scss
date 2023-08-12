@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
 
   .picker {
@@ -17,6 +17,15 @@
     min-height: 700px;
     min-width: 400px;
     padding: 0 30px;
+
+    .buttons {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      button {
+        min-width: 250px;
+      }  
+    }
     
     select {
       margin: 50px 0;

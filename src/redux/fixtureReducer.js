@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fetchLineups } from "./lineupsReducer";
+import { fetchLineups } from "./lineupsReducer"; 
 
 const createActionName = actionName => `app/fixture/${actionName}`;
 
@@ -11,11 +11,11 @@ export const fetchFixture = (id) => {
   return async (dispatch) => {
     const options = {
       method: 'GET',
-      url: 'https://api-football-beta.p.rapidapi.com/fixtures',
+      url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
       params: {id: id},
       headers: {
-        'X-RapidAPI-Key': 'f7d8d8ceccmshe0ff352a34b3d37p1f3913jsn2dd77db35e1a',
-        'X-RapidAPI-Host': 'api-football-beta.p.rapidapi.com'
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };
     
@@ -24,7 +24,7 @@ export const fetchFixture = (id) => {
       dispatch(addFixture(response.data.response))
       dispatch(fetchLineups(id))
     } catch (error) {
-      //console.error(error);
+      console.error(error);
     }
   }
 }

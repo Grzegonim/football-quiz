@@ -32,21 +32,33 @@
     }
   }
 
+  .fixture {
+    align-items: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 35px;
+    width: 100%;
+
+    span {
+      margin: 0 5px;
+    }
+  }
   .board {
     aspect-ratio: 1413 / 2245;
     align-items: center;
     background-image: url('../../../../public/board.svg');
     background-size: cover;
     display: grid;
-    max-width: 500px;
-    margin: 50px auto;
+    max-width: 450px;
+    margin: 35px auto;
 
   .line {
       display: grid;
       grid-template-columns: repeat(auto-fit, 20%);
+      height: 25%;
       justify-items: center;
       justify-content: space-around;
-      height: 25%;
       width: 100%;
 
       &:first-child {
@@ -68,12 +80,12 @@
         width: 45%;
 
         span {
-          position: absolute;
           bottom: -30px;
           display: flex;
           justify-content: center;
           justify-items: center;
           padding: 0 10px;
+          position: absolute;
           text-align: center;
           text-shadow: 1px 1px 1px black;
           width: 150px;
@@ -98,12 +110,12 @@
         transform: rotateY(360deg);
 
         span {
-          position: absolute;
           bottom: -30px;
           display: flex;
           justify-content: center;
           justify-items: center;
           padding: 0 10px;
+          position: absolute;
           text-align: center;
           text-shadow: 1px 1px 1px black;
           width: 150px;
@@ -113,43 +125,17 @@
   }
 
   .historyContainer {
+    color: white;
     height: 300px;
     margin: 10px auto;
     padding: 10px;
-    width: 500px;
     text-align: center;
+    width: 500px;
 
     span {
       display: inline-block;
       margin: 5px;
       text-decoration: line-through;
-    }
-  }
-
-  .modalContainer {
-    backdrop-filter: blur(5px);
-    display: flex;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    .modal {
-      align-items: center;
-      color: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: auto;
-      height: 200px;
-      font-size: 30px;
-      font-weight: 600;
-      width: 400px;
-
-      h2 {
-        font-size: 40px;
-
-      }
     }
   }
 }

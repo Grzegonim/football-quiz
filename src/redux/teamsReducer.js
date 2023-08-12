@@ -8,23 +8,21 @@ const addTeams = payload => ({ type: ADD_TEAMS, payload });
 
 export const fetchTeams = (year, id) => {
   return async (dispatch) => {
-    console.log(typeof id)
     const options = {
       method: 'GET',
-      url: 'https://api-football-beta.p.rapidapi.com/teams',
+      url: 'https://api-football-v1.p.rapidapi.com/v3/teams',
       params: {
         league: id,
         season: year
       },
       headers: {
-        'X-RapidAPI-Key': 'f7d8d8ceccmshe0ff352a34b3d37p1f3913jsn2dd77db35e1a',
-        'X-RapidAPI-Host': 'api-football-beta.p.rapidapi.com'
+        'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
       }
     };
     
     try {
       const response = await axios.request(options);
-      console.log(response.data);
       dispatch(addTeams(response.data.response));
     } catch (error) {
       console.error(error);
