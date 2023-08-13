@@ -4,6 +4,7 @@ import styles from './FixtureMiniature.module.scss';
 import Button from '../Button/Button';
 
 const FixtureMiniature = ({ home, away, league, fixture, team }) => {
+
   return (
     <div className={styles.fixtureContainer}>
 

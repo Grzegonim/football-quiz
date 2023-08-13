@@ -11,20 +11,24 @@ import { Form } from "react-bootstrap";
 const LeaguePicer = () => {
   const dispatch = useDispatch();
   const [season, setSeason] = useState('');
+  const [status, setStatus] = useState('league');
   const seasons = useSelector(state => state.seasons);
   const teams = useSelector(state => state.teams);
   const pickSeason = (year, id) => {
     setSeason(year)
     dispatch(fetchTeams(year, id));
+    setStatus('team');
   };
   const pickSeasons = (league, country) => {
     dispatch(fetchSeasons(league, country));
+    setStatus('season');
   };
-
+  console.log(status)
+  
   return (
     <div className={styles.container}>
       <div className={styles.picker}>
-          {seasons.length === 0 || seasons.length === undefined &&
+          {status === 'league' && 
             <>
             <div className={styles.buttons}>
             <h2>Wybierz ligę</h2>
@@ -35,7 +39,7 @@ const LeaguePicer = () => {
             </div>
             </>
           }
-          {seasons.length !== 0 && seasons.length !== undefined && teams.length === 0 &&
+          {seasons.length !== 0 && seasons.length !== undefined && status === 'season' &&
             <>
               <Form.Select onChange={(e) => setSeason(e.target.value)}>
                 <option>Wybierz sezon</option>
@@ -46,10 +50,10 @@ const LeaguePicer = () => {
               <Button onClick={(e) => pickSeason(season, seasons[0].league.id)}>Wybieram</Button>
             </>
           }
-          {teams.length !== 0 && teams.length !== undefined &&
+          {teams.length !== 0 && teams.length !== undefined && status === 'team' &&
             <>
               <h2>Wybierz zespół</h2>
-              <TeamPicker year={season} />
+              <TeamPicker year={season} onClick={() => setSeason('league')} />
             </>
           }
       </div>

@@ -21,6 +21,7 @@ const Board = () => {
   const fixture = useSelector(state => state.fixture);
   const [time, setTime] = useState(300000);
   const [timer, setTimer] = useState(true);
+  const teamName = localStorage.getItem('team');
 
   useEffect(() => {
     let interval;
@@ -32,6 +33,7 @@ const Board = () => {
     return () => clearInterval(interval);
   }, [timer])
 
+  if(time < 0) setTime(false);
 
   const playerLine = player => {
     let position = parseInt(player.player.grid.slice(0, 1));
@@ -69,7 +71,7 @@ const Board = () => {
     player !== undefined ? setCorrectAnswers([...correctAnswers, player.id]) : setValid(true);
     setName('');
   };
-
+  
   return (
     <section className={styles.boardContainer}>
       <Timer time={time} />
@@ -86,6 +88,7 @@ const Board = () => {
         {line5.length > 0 && <div className={styles.line}>{line5.map(player => <div key={player.player.id} className={correctAnswers.includes(player.player.id) ? styles.success : styles.player}>{correctAnswers.includes(player.player.id) ? <>{player.player.number}<span className={styles.flip}>{player.player.name}</span></> : <>?<span>?</span></>}</div>)}</div>}
       </div>
       <form onSubmit={e => handleAnswer(e) } onChange={() => setValid(false)}>
+        <label>Wpisz nazwisko piłkarza {teamName}</label>
         <input className={valid && styles.invalid} onChange={e => setName(e.target.value)} type='text' value={name}></input>
       </form>
       <div className={styles.historyContainer}>
@@ -95,7 +98,7 @@ const Board = () => {
         (correctAnswers.length === 11) && <Modal status='success' />
       }
       {
-        time < 0 && <Modal status='timeout' />
+        time === false && <Modal status='timeout' />
       }
     </section>
   )  

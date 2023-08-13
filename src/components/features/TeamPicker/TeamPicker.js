@@ -20,7 +20,7 @@ const TeamPicker = ({ year }) => {
     <div className={styles.carouselContainer}>
       <div className={styles.carousel}>
         <Button onClick={() => handleDecrease()}>&lt;</Button>
-        <Link to={`/matches/${teams[currentSlide].team.id}/${year}/${seasons[0].league.id}/${teams[currentSlide].team.id}`}><img key={teams[currentSlide].team.id} src={teams[currentSlide].team.logo} alt={teams[currentSlide].team.name} /></Link>
+        <Link to={`/matches/${teams[currentSlide].team.id}/${year}/${seasons[0].league.id}/${teams[currentSlide].team.id}`}><img onClick={() => localStorage.setItem('team', teams[currentSlide].team.name)} key={teams[currentSlide].team.id} src={teams[currentSlide].team.logo} alt={teams[currentSlide].team.name} /></Link>
         <Button onClick={() => handleIncrease()}>&gt;</Button>
       </div>
     </div>

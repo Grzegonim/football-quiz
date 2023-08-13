@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/alarm-clock');
+
 .timer {
   align-items: center;
   border: 2px solid white;
@@ -5,6 +7,7 @@
   color: white;
   display: flex;
   font-size: 20px;
+  font-family: 'alarm clock', sans-serif;
   height: 75px;
   justify-content: center;
   left: 10px;
